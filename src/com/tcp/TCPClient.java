@@ -21,10 +21,20 @@ class TCPClient
     {
         String message = "";
         String responseFromServer;
+
+        //input from user
         BufferedReader inFromUser = new BufferedReader( new InputStreamReader(System.in));
+
+        //trying to connect
         Socket clientSocket = new Socket(address, port);
+
+        //creating out to write to server
         DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
+
+        //creating in to get data from server
         BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+
+
         while(!message.equals("q"))
         {
             message = inFromUser.readLine();

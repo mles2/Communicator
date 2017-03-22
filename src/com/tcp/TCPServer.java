@@ -19,10 +19,15 @@ class TCPServer
     void run() throws IOException
     {
         String message = "";
+        //creating socket on port
         ServerSocket socket = new ServerSocket(port);
+
+        //server is waiting here for client
         Socket connectionSocket = socket.accept();
+
         BufferedReader bufferFromClient =
                 new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
+
         DataOutputStream streamForResponse =
                 new DataOutputStream(connectionSocket.getOutputStream());
 

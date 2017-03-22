@@ -19,12 +19,20 @@ class UDPClient
 
     void run() throws IOException
     {
+        //input reading
         BufferedReader inFromUser =
                 new BufferedReader(new InputStreamReader(System.in));
+
+        //datagram socket
         DatagramSocket clientSocket = new DatagramSocket();
+
+        //get address to send response later
         InetAddress IPAddress = InetAddress.getByName(address);
+
+        //raw data for sending and receiving
         byte[] sendData;
         byte[] receiveData = new byte[1024];
+
         String message = "";
         while(!message.equals("q"))
         {
